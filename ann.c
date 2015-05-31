@@ -12,7 +12,14 @@ typedef struct {
 } Links;
 
 typedef struct {
+    int input[INPUTS];
+    int hidden[HIDDEN];
+    int output[OUTPUTS];
+} Neurons;
+
+typedef struct {
     Links weights;
+    Neurons values;
 } ANN;
 
 int main(void)
