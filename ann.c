@@ -13,7 +13,7 @@ typedef struct {
 
 typedef struct {
     int input[INPUTS];
-    int hidden[ROWS - 3][HIDDEN];
+    int hidden[ROWS - 2][HIDDEN];
     int output[OUTPUTS];
 } Neurons;
 
