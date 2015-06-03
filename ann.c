@@ -49,6 +49,37 @@ void ann_create(ANN *ann) {
     }
 }
 
+void ann_calculate(ANN *ann) {
+    int i;
+    for (i = 0; i < HIDDEN; i++) {
+        int j;
+        double value;
+        for (j = 0, value = 0; j < INPUTS; j++) {
+            value += ann->values.output[j] * ann->weights.input[i][j];
+        }
+        ann->values.hidden[0][i] = value > 0;
+    }
+    for (i = 0; i < ROWS - 3; i++) {
+        int j;
+        for (j = 0; j < HIDDEN; j++) {
+            int k;
+            double value;
+            for (k = 0, value = 0; k < HIDDEN; k++) {
+                value += ann->values.hidden[i][k] * ann->weights.hidden[i][j][k];
+            }
+            ann->values.hidden[i + 1][j] = value > 0;
+        }
+    }
+    for (i = 0; i < OUTPUTS; i++) {
+        int j;
+        double value;
+        for (j = 0, value = 0; j < HIDDEN; j++) {
+            value += ann->values.hidden[HIDDEN - 1][j] * ann->weights.output[i][j];
+        }
+        ann->values.output[i] = value > 0;
+    }
+}
+
 int main(void)
 {
     srand(time(NULL));
