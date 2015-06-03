@@ -52,5 +52,7 @@ void ann_create(ANN *ann) {
 int main(void)
 {
     srand(time(NULL));
+    ANN ann;
+    ann_create(&ann);
     return 0;
 }
