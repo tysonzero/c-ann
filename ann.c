@@ -89,5 +89,6 @@ int main(void)
     ann.values.input[1] = 0;
     ann.values.input[2] = 1;
     ann_calculate(&ann);
+    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
     return 0;
 }
