@@ -8,9 +8,9 @@
 #define ROWS 5
 
 typedef struct {
-    double input[HIDDEN][INPUTS];
-    double hidden[ROWS - 3][HIDDEN][HIDDEN];
-    double output[OUTPUTS][HIDDEN];
+    double input[HIDDEN][INPUTS + 1];
+    double hidden[ROWS - 3][HIDDEN][HIDDEN + 1];
+    double output[OUTPUTS][HIDDEN + 1];
 } Links;
 
 typedef struct {
@@ -28,7 +28,7 @@ void ann_create(ANN *ann) {
     int i;
     for (i = 0; i < HIDDEN; i++) {
         int j;
-        for (j = 0; j < INPUTS; j++) {
+        for (j = 0; j < INPUTS + 1; j++) {
             ann->weights.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
         }
     }
@@ -36,14 +36,14 @@ void ann_create(ANN *ann) {
         int j;
         for (j = 0; j < HIDDEN; j++) {
             int k;
-            for (k = 0; k < HIDDEN; k++) {
+            for (k = 0; k < HIDDEN + 1; k++) {
                 ann->weights.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
             }
         }
     }
     for (i = 0; i < OUTPUTS; i++) {
         int j;
-        for (j = 0; j < HIDDEN; j++) {
+        for (j = 0; j < HIDDEN + 1; j++) {
             ann->weights.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
         }
     }
@@ -57,6 +57,7 @@ void ann_calculate(ANN *ann) {
         for (j = 0, value = 0; j < INPUTS; j++) {
             value += ann->values.input[j] * ann->weights.input[i][j];
         }
+        value += ann->weights.input[i][INPUTS];
         ann->values.hidden[0][i] = value > 0;
     }
     for (i = 0; i < ROWS - 3; i++) {
@@ -67,6 +68,7 @@ void ann_calculate(ANN *ann) {
             for (k = 0, value = 0; k < HIDDEN; k++) {
                 value += ann->values.hidden[i][k] * ann->weights.hidden[i][j][k];
             }
+            value += ann->weights.hidden[i][j][HIDDEN];
             ann->values.hidden[i + 1][j] = value > 0;
         }
     }
@@ -76,6 +78,7 @@ void ann_calculate(ANN *ann) {
         for (j = 0, value = 0; j < HIDDEN; j++) {
             value += ann->values.hidden[HIDDEN - 1][j] * ann->weights.output[i][j];
         }
+        value += ann->weights.output[i][HIDDEN];
         ann->values.output[i] = value > 0;
     }
 }
