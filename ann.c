@@ -55,7 +55,7 @@ void ann_calculate(ANN *ann) {
         int j;
         double value;
         for (j = 0, value = 0; j < INPUTS; j++) {
-            value += ann->values.output[j] * ann->weights.input[i][j];
+            value += ann->values.input[j] * ann->weights.input[i][j];
         }
         ann->values.hidden[0][i] = value > 0;
     }
