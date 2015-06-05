@@ -22,6 +22,7 @@ typedef struct {
 typedef struct {
     Links weights;
     Neurons values;
+    Neurons slopes;
 } ANN;
 
 void ann_create(ANN *ann) {
