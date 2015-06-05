@@ -31,6 +31,7 @@ void ann_create(ANN *ann) {
         int j;
         for (j = 0; j < INPUTS + 1; j++) {
             ann->weights.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->slopes.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
         }
     }
     for (i = 0; i < ROWS - 3; i++) {
@@ -39,6 +40,7 @@ void ann_create(ANN *ann) {
             int k;
             for (k = 0; k < HIDDEN + 1; k++) {
                 ann->weights.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
+                ann->slopes.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
             }
         }
     }
@@ -46,6 +48,7 @@ void ann_create(ANN *ann) {
         int j;
         for (j = 0; j < HIDDEN + 1; j++) {
             ann->weights.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->slopes.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
         }
     }
 }
