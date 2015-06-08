@@ -81,13 +81,13 @@ void ann_mutate(ANN *ann, double increment) {
     }
 }
 
-void ann_calculate(ANN *ann) {
+void ann_calculate(ANN *ann, double increment) {
     int i;
     for (i = 0; i < HIDDEN; i++) {
         int j;
         double value;
         for (j = 0, value = 0; j < INPUTS; j++) {
-            value += ann->values.input[j] * ann->weights.input[i][j];
+            value += ann->values.input[j] * (ann->weights.input[i][j] + increment * ann->slopes.input[i][j]);
         }
         value += ann->weights.input[i][INPUTS];
         ann->values.hidden[0][i] = value > 0;
@@ -98,7 +98,7 @@ void ann_calculate(ANN *ann) {
             int k;
             double value;
             for (k = 0, value = 0; k < HIDDEN; k++) {
-                value += ann->values.hidden[i][k] * ann->weights.hidden[i][j][k];
+                value += ann->values.hidden[i][k] * (ann->weights.hidden[i][j][k] + increment * ann->slopes.hidden[i][j][k]);
             }
             value += ann->weights.hidden[i][j][HIDDEN];
             ann->values.hidden[i + 1][j] = value > 0;
@@ -108,7 +108,7 @@ void ann_calculate(ANN *ann) {
         int j;
         double value;
         for (j = 0, value = 0; j < HIDDEN; j++) {
-            value += ann->values.hidden[HIDDEN - 1][j] * ann->weights.output[i][j];
+            value += ann->values.hidden[HIDDEN - 1][j] * (ann->weights.output[i][j] + increment * ann->slopes.output[i][j]);
         }
         value += ann->weights.output[i][HIDDEN];
         ann->values.output[i] = value > 0;
@@ -123,7 +123,7 @@ int main(void)
     ann.values.input[0] = 1;
     ann.values.input[1] = 0;
     ann.values.input[2] = 1;
-    ann_calculate(&ann);
+    ann_calculate(&ann, 0);
     printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
     return 0;
 }
