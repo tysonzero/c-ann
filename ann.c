@@ -75,7 +75,7 @@ void ann_mutate(ANN *ann, double increment) {
     for (i = 0; i < OUTPUTS; i++) {
         int j;
         for (j = 0; j < HIDDEN + 1; j++) {
-            ann->weights.output[i][j] = increment * ann->slopes.output[i][j];
+            ann->weights.output[i][j] += increment * ann->slopes.output[i][j];
             ann->slopes.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
         }
     }
