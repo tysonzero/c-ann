@@ -130,5 +130,7 @@ int main(void)
     ann_mutate(&ann, 1);
     ann_calculate(&ann, 0);
     printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
+    ann_calculate(&ann, -1);
+    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
     return 0;
 }
