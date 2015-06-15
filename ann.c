@@ -121,6 +121,12 @@ void ann_save(ANN *ann, char *filename) {
     fclose(file);
 }
 
+void ann_load(ANN *ann, char *filename) {
+    FILE *file = fopen(filename, "r");
+    fread(ann, sizeof(ANN), 1, file);
+    fclose(file);
+}
+
 int main(void)
 {
     srand(time(NULL));
