@@ -115,6 +115,12 @@ void ann_calculate(ANN *ann, double increment) {
     }
 }
 
+void ann_save(ANN *ann, char *filename) {
+    FILE* file = fopen(filename, "w");
+    fwrite(ann, sizeof(ANN), 1, file);
+    fclose(file);
+}
+
 int main(void)
 {
     srand(time(NULL));
