@@ -132,6 +132,7 @@ int main(void)
     srand(time(NULL));
     ANN ann;
     ann_create(&ann);
+    ann_load(&ann, "ann.txt");
     ann.values.input[0] = 1;
     ann.values.input[1] = 0;
     ann.values.input[2] = 1;
