@@ -138,5 +138,6 @@ int main(void)
     printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
     ann_calculate(&ann, -1);
     printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
+    ann_save(&ann, "ann.txt");
     return 0;
 }
