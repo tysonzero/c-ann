@@ -1,4 +1,6 @@
-# c-ann
+C-ANN
+=====
+
 An Artificial Neuron Network
 
 Instructions:
