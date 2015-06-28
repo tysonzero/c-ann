@@ -6,7 +6,6 @@ An Artificial Neuron Network
 Instructions:
 -------------
 
-    gcc ann.c -o ann.o
-    ./ann.o
-
+Compile ann.c with your favorite C compiler.
+Next run the output file (ann.o).
 This will print a few outputs of the ANN for testing purposes.
