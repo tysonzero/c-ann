@@ -30,8 +30,8 @@ void ann_create(ANN *ann) {
     for (i = 0; i < HIDDEN; i++) {
         int j;
         for (j = 0; j < INPUTS + 1; j++) {
-            ann->weights.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
-            ann->slopes.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->weights.input[i][j] = 2.0 * rand() / RAND_MAX - 1;
+            ann->slopes.input[i][j] = 2.0 * rand() / RAND_MAX - 1;
         }
     }
     for (i = 0; i < ROWS - 3; i++) {
@@ -39,16 +39,16 @@ void ann_create(ANN *ann) {
         for (j = 0; j < HIDDEN; j++) {
             int k;
             for (k = 0; k < HIDDEN + 1; k++) {
-                ann->weights.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
-                ann->slopes.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
+                ann->weights.hidden[i][j][k] = 2.0 * rand() / RAND_MAX - 1;
+                ann->slopes.hidden[i][j][k] = 2.0 * rand() / RAND_MAX - 1;
             }
         }
     }
     for (i = 0; i < OUTPUTS; i++) {
         int j;
         for (j = 0; j < HIDDEN + 1; j++) {
-            ann->weights.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
-            ann->slopes.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->weights.output[i][j] = 2.0 * rand() / RAND_MAX - 1;
+            ann->slopes.output[i][j] = 2.0 * rand() / RAND_MAX - 1;
         }
     }
 }
@@ -59,7 +59,7 @@ void ann_mutate(ANN *ann, double increment) {
         int j;
         for (j = 0; j < INPUTS + 1; j++) {
             ann->weights.input[i][j] += increment * ann->slopes.input[i][j]; 
-            ann->slopes.input[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->slopes.input[i][j] = 2.0 * rand() / RAND_MAX - 1;
         }
     }
     for (i = 0; i < ROWS - 3; i++) {
@@ -68,7 +68,7 @@ void ann_mutate(ANN *ann, double increment) {
             int k;
             for (k = 0; k < HIDDEN + 1; k++) {
                 ann->weights.hidden[i][j][k] += increment * ann->slopes.hidden[i][j][k]; 
-                ann->slopes.hidden[i][j][k] = 2 * (double) rand() / RAND_MAX - 1;
+                ann->slopes.hidden[i][j][k] = 2.0 * rand() / RAND_MAX - 1;
             }
         }
     }
@@ -76,7 +76,7 @@ void ann_mutate(ANN *ann, double increment) {
         int j;
         for (j = 0; j < HIDDEN + 1; j++) {
             ann->weights.output[i][j] += increment * ann->slopes.output[i][j];
-            ann->slopes.output[i][j] = 2 * (double) rand() / RAND_MAX - 1;
+            ann->slopes.output[i][j] = 2.0 * rand() / RAND_MAX - 1;
         }
     }
 }
