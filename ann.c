@@ -131,8 +131,7 @@ void ann_load(ANN *ann, char *filename) {
     }
 }
 
-int main(void)
-{
+int main(void) {
     srand(time(NULL));
     ANN ann;
     ann_create(&ann);
