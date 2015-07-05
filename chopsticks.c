@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 typedef struct {
     int fingers[2][2];
     int turn;
@@ -12,5 +14,8 @@ void chopsticks_create(Chopsticks *chopsticks) {
 }
 
 int main(void) {
-
+    Chopsticks chopsticks;
+    chopsticks_create(&chopsticks);
+    printf("%d\n", chopsticks.fingers[0][0]);
+    printf("%d\n", chopsticks.turn);
 }
