@@ -3,19 +3,19 @@
 typedef struct {
     int fingers[2][2];
     int turn;
-} Chopsticks;
+} Sticks;
 
-void chopsticks_create(Chopsticks *chopsticks) {
-    chopsticks->fingers[0][0] = 1;
-    chopsticks->fingers[0][1] = 1;
-    chopsticks->fingers[1][0] = 1;
-    chopsticks->fingers[1][1] = 1;
-    chopsticks->turn = 0;
+void sticks_create(Sticks *sticks) {
+    sticks->fingers[0][0] = 1;
+    sticks->fingers[0][1] = 1;
+    sticks->fingers[1][0] = 1;
+    sticks->fingers[1][1] = 1;
+    sticks->turn = 0;
 }
 
 int main(void) {
-    Chopsticks chopsticks;
-    chopsticks_create(&chopsticks);
-    printf("%d\n", chopsticks.fingers[0][0]);
-    printf("%d\n", chopsticks.turn);
+    Sticks sticks;
+    sticks_create(&sticks);
+    printf("%d\n", sticks.fingers[0][0]);
+    printf("%d\n", sticks.turn);
 }
