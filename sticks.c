@@ -13,10 +13,10 @@ void sticks_create(Sticks *sticks) {
     sticks->turn = 0;
 }
 
-void sticks_play(Sticks *sticks, int actor, int target) {
-    sticks->hands[!sticks->turn][target] += sticks->hands[sticks->turn][actor];
-    if (sticks->hands[!sticks->turn][target] >= 5) {
-        sticks->hands[!sticks->turn][target] = 0;
+void sticks_play(Sticks *sticks, int x, int y) {
+    sticks->hands[!sticks->turn][y] += sticks->hands[sticks->turn][x];
+    if (sticks->hands[!sticks->turn][y] >= 5) {
+        sticks->hands[!sticks->turn][y] = 0;
     }
     sticks->turn = !sticks->turn;
 }
