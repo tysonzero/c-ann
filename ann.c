@@ -136,18 +136,19 @@ int main(void) {
     ANN ann;
     ann_create(&ann);
     ann_load(&ann, "ann.txt");
-    ann.values.input[0] = 1;
-    ann.values.input[1] = 0;
-    ann.values.input[2] = 1;
-    ann_calculate(&ann, 0);
-    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
-    ann_calculate(&ann, 1);
-    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
-    ann_mutate(&ann, 1);
-    ann_calculate(&ann, 0);
-    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
-    ann_calculate(&ann, -1);
-    printf("%d %d\n", ann.values.output[0], ann.values.output[1]);
-    ann_save(&ann, "ann.txt");
+    while (1) {
+        int i;
+        double increment;
+        for (i = 0; i < INPUTS; i++) {
+            scanf("%d", &ann.values.input[i]);
+        }
+        scanf("%lf", &increment);
+        ann_calculate(&ann, increment);
+        for (i = 0; i < OUTPUTS - 1; i++) {
+            printf("%d ", ann.values.output[i]);
+        } 
+        printf("%d\n", ann.values.output[OUTPUTS - 1]);
+        ann_save(&ann, "ann.txt");
+    }
     return 0;
 }
