@@ -33,10 +33,10 @@ void sticks_play(Sticks *sticks, int attack, int x, int y) {
 int main(void) {
     Sticks sticks;
     sticks_create(&sticks);
-    int attack;
-    int x;
-    int y;
     while (1) {
+        int attack;
+        int x;
+        int y;
         printf("%d\n", sticks.turn);
         printf("%d %d\n", sticks.hands[0][0], sticks.hands[0][1]);
         printf("%d %d\n", sticks.hands[1][0], sticks.hands[1][1]);
