@@ -139,15 +139,18 @@ int main(void) {
     while (1) {
         int i;
         double increment;
+        double mutation;
         for (i = 0; i < INPUTS; i++) {
             scanf("%d", &ann.values.input[i]);
         }
         scanf("%lf", &increment);
+        scanf("%lf", &mutation);
         ann_calculate(&ann, increment);
         for (i = 0; i < OUTPUTS - 1; i++) {
             printf("%d ", ann.values.output[i]);
         } 
         printf("%d\n", ann.values.output[OUTPUTS - 1]);
+        if (mutation) ann_mutate(&ann, mutation);
         ann_save(&ann, "ann.txt");
     }
     return 0;
