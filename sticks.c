@@ -46,4 +46,5 @@ int main(void) {
         scanf("%d", &y);
         sticks_play(&sticks, attack, x, y);
     }
+    return 0;
 }
