@@ -40,6 +40,7 @@ int main(void) {
         printf("%d\n", sticks.turn);
         printf("%d %d\n", sticks.hands[0][0], sticks.hands[0][1]);
         printf("%d %d\n", sticks.hands[1][0], sticks.hands[1][1]);
+        if ((sticks.hands[0][0] + sticks.hands[0][1]) * (sticks.hands[1][0] + sticks.hands[1][1]) == 0) break;
         scanf("%d", &attack);
         scanf("%d", &x);
         scanf("%d", &y);
