@@ -7,5 +7,5 @@ Instructions:
 -------------
 
 Compile ann.c with your favorite C compiler.
-Next run the output file (ann.o).
+Next run the output file.
 This will print a few outputs of the ANN for testing purposes.
