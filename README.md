@@ -33,12 +33,12 @@ The program will output the starting setup of a sticks game in the following for
 
 It will then wait for 3 inputs in the following format:
 
-   (1/0) whether or not to attack
-   if 1:
-       (1/0) hand to use
-       (1/0) hand to attack
-   else:
-       (1/0) 2, (1/0) 1: number of fingers to end with on first hand (sum the numbers)
+    (1/0) whether or not to attack
+    if 1:
+        (1/0) hand to use
+        (1/0) hand to attack
+    else:
+        (1/0) 2, (1/0) 1: number of fingers to end with on first hand (sum the numbers)
 
 If the move is not possible it will try and get as close as possible.
 
