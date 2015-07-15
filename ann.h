@@ -24,14 +24,14 @@ typedef struct {
     Neurons values;
 } ANN;
 
-void ann_create(ANN *ann)
+void ann_create(ANN *ann);
 
-void ann_mutate(ANN *ann, double increment)
+void ann_mutate(ANN *ann, double increment);
 
-void ann_calculate(ANN *ann, double increment)
+void ann_calculate(ANN *ann, double increment);
 
-void ann_save(ANN *ann, char *filename)
+void ann_save(ANN *ann, char *filename);
 
-void ann_load(ANN *ann, char *filename)
+void ann_load(ANN *ann, char *filename);
 
 #endif
