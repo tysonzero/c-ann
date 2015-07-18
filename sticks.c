@@ -30,6 +30,12 @@ void sticks_play(Sticks *sticks, int attack, int x, int y) {
     sticks->turn = !sticks->turn;
 }
 
+void sticks_print(Sticks *sticks) {
+    printf("%d\n", sticks->turn);
+    printf("%d %d\n", sticks->hands[0][0], sticks->hands[0][1]);
+    printf("%d %d\n", sticks->hands[1][0], sticks->hands[1][1]);
+}
+
 int main(void) {
     Sticks sticks;
     sticks_create(&sticks);
@@ -37,9 +43,7 @@ int main(void) {
         int attack;
         int x;
         int y;
-        printf("%d\n", sticks.turn);
-        printf("%d %d\n", sticks.hands[0][0], sticks.hands[0][1]);
-        printf("%d %d\n", sticks.hands[1][0], sticks.hands[1][1]);
+        sticks_print(&sticks);
         if ((sticks.hands[0][0] + sticks.hands[0][1]) * (sticks.hands[1][0] + sticks.hands[1][1]) == 0) break;
         scanf("%d", &attack);
         scanf("%d", &x);
