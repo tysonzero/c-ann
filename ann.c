@@ -110,6 +110,14 @@ void ann_load(ANN *ann, char *filename) {
     }
 }
 
+void ann_print(ANN *ann) {
+    int i;
+    for (i = 0; i < OUTPUTS - 1; i++) {
+        printf("%d ", ann->values.output[i]);
+    } 
+    printf("%d\n", ann->values.output[OUTPUTS - 1]);
+}
+
 int main(void) {
     srand(time(NULL));
     ANN ann;
@@ -125,10 +133,7 @@ int main(void) {
         scanf("%lf", &increment);
         scanf("%lf", &mutation);
         ann_calculate(&ann, increment);
-        for (i = 0; i < OUTPUTS - 1; i++) {
-            printf("%d ", ann.values.output[i]);
-        } 
-        printf("%d\n", ann.values.output[OUTPUTS - 1]);
+        ann_print(&ann);
         if (mutation) ann_mutate(&ann, mutation);
         ann_save(&ann, "ann.txt");
     }
