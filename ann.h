@@ -34,4 +34,6 @@ void ann_save(ANN *ann, char *filename);
 
 void ann_load(ANN *ann, char *filename);
 
+void ann_print(ANN *ann);
+
 #endif
