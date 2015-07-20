@@ -42,4 +42,4 @@ It will then wait for 3 inputs in the following format:
 
 If the move is not possible it will try and get as close as possible.
 
-Next it will repeate the process.
+Next it will repeat the process.
