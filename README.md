@@ -6,7 +6,7 @@ An Artificial Neuron Network
 Instructions:
 -------------
 
-Compile ann.c with your favorite C compiler.
+Compile ann.c and test.c together with your favorite C compiler.
 
 Next run the output file.
 
