@@ -21,7 +21,7 @@ It will then print the output of the ANN and repeat the process.
 Sticks Instructions:
 --------------------
 
-Compile sticks.c with your favorite C compiler.
+Compile ann.c and sticks.c together with your favorite C compiler.
 
 Next run the output file.
 

@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "ann.h"
+
 typedef struct {
     int hands[2][2];
     int turn;
