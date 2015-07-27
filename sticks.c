@@ -25,7 +25,7 @@ void sticks_play(Sticks *sticks, int attack, int x, int y) {
         int desired = 2 * x + y;
         if (desired < fingers - 4) desired = fingers - 4;
         if (desired >= sticks->hands[sticks->turn][0]) desired += 1;
-        if (desired == sticks->hands[!sticks->turn][0]) desired += 1;
+        if (desired == sticks->hands[sticks->turn][1]) desired += 1;
         if (desired > fingers) desired = fingers;
         sticks->hands[sticks->turn][0] = desired;
         sticks->hands[sticks->turn][1] = fingers - desired;
