@@ -18,6 +18,7 @@ void sticks_create(Sticks *sticks) {
 void sticks_play(Sticks *sticks, int attack, int x, int y) {
     if (attack) {
         if (!sticks->hands[sticks->turn][x]) x = !x;
+        if (!sticks->hands[!sticks->turn][y]) y = !y;
         sticks->hands[!sticks->turn][y] += sticks->hands[sticks->turn][x];
         if (sticks->hands[!sticks->turn][y] >= 5) sticks->hands[!sticks->turn][y] = 0;
     } else {
